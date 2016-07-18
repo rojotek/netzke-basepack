@@ -183,8 +183,13 @@ module Netzke
           end
 
           def set_default_text(c)
-            c[:text] ||= c[:label] || data_class.human_attribute_name(c[:name])
+            c[:text] ||= c[:label] || safe_human_attribute_name(c)
           end
+
+          def safe_human_attribute_name(c)
+            data_class.human_attribute_name(c[:name]) if c[:name].present?
+          end
+
 
           def set_default_editor(c)
             # if shouldn't be editable, don't set any default editor; also, specifying xtype takes care of the editor
