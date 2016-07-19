@@ -151,7 +151,6 @@ module Netzke
         :load_inline_data       => true,
         :enable_rows_reordering => false, # column drag n drop
         :enable_pagination      => true,
-        :rows_per_page          => 30,
         :tools                  => %w{ refresh }
       }
 
